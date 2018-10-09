@@ -28,68 +28,68 @@ public class HermesReviewsServiceLayerImpl implements HermesReviewsServiceLayer 
     }
     
        ///articles
-    @Override
-    public Article getArticle(int articleID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
-    @Override
-    public Article editArticle(int articleID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteArticle(int articleID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Article createArticle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public Article getArticle(int articleID) {
+//       return dao.getArticle(articleID);
+//    }
+//
+//   
+//    @Override
+//    public void editArticle(Article article) {
+//        dao.editArticle(article);
+//    }
+//
+//    @Override
+//    public void deleteArticle(int articleID) {
+//        dao.deleteArticle(articleID);
+//    }
+//
+//    @Override
+//    public Article createArticle(Article article) {
+//        return dao.createArticle(article);
+//    }
 
     /// article reviews///////////////////////////////////////////////////
-    @Override
-    public ArticleReview getArticleReview(int articleReviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArticleReview editArticleReview(int articleReviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteArticleReview(int articleReview) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArticleReview createArticleReview() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public ArticleReview getArticleReview(int articleReviewID) {
+//        return dao.getArticleReview(articleReviewID);
+//    }
+//
+//    @Override
+//    public ArticleReview editArticleReview(int articleReviewID) {
+//        return dao.editArticleReview(articleReviewID);
+//    }
+//
+//    @Override
+//    public void deleteArticleReview(int articleReview) {
+//        dao.deleteArticleReview(articleReview);
+//    }
+//
+//    @Override
+//    public ArticleReview createArticleReview(ArticleReview articleReview) {
+//        return dao.createArticleReview(articleReview);
+//    }
     
     //Author methods /////////////////
 
     @Override
     public Author getAuthor(int authorID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.getAuthor(authorID);
     }
 
     @Override
-    public void editAuthor(int authorID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void editAuthor(Author author) {
+        dao.editAuthor(author);
     }
 
     @Override
     public void deleteAuthor(int authorID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.deleteAuthor(authorID);
     }
 
     @Override
     public Author createAuthor(Author author) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.createAuthor(author);
     }
     
     @Override
@@ -105,8 +105,8 @@ public class HermesReviewsServiceLayerImpl implements HermesReviewsServiceLayer 
     }
 
     @Override
-    public void editBook(int bookID) {
-        dao.editBook(bookID);
+    public void editBook(Book book) {
+        dao.editBook(book);
     }
 
     @Override
@@ -125,67 +125,67 @@ public class HermesReviewsServiceLayerImpl implements HermesReviewsServiceLayer 
     
     ////////////book reviews methods
 
-    @Override
-    public BookReview getBookReview(int bookReviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public BookReview editBookReview(int bookReviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteBookReview(int bookReviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public BookReview createBookReview() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public BookReview getBookReview(int bookReviewID) {
+//        return dao.getBookReview(bookReviewID);
+//    }
+//
+//    @Override
+//    public BookReview editBookReview(int bookReviewID) {
+//        return dao.editBookReview(bookReviewID);
+//    }
+//
+//    @Override
+//    public void deleteBookReview(int bookReviewID) {
+//        dao.deleteBookReview(bookReviewID);
+//    }
+//
+//    @Override
+//    public BookReview createBookReview(BookReview bookReview) {
+//        return dao.createBookReview(bookReview);
+//    }
 
     ////// Field Methods ////////////  
     
     @Override
     public Field getField(int fieldID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.getField(fieldID);
     }
 
     @Override
-    public Field editField(int fieldID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void editField(Field field) {
+        dao.editField(field);
     }
 
     @Override
     public void deleteField(int fieldID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.deleteField(fieldID);
     }
 
     @Override
-    public Field createField() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Field createField(Field field) {
+        return dao.createField(field);
     }
 
     //////////////////// Review Methods //////
     @Override
     public Review getReview(int reviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.getReview(reviewID);
     }
 
     @Override
-    public Review editReview(int reviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void editReview(Review review) {
+        dao.editReview(review);
     }
 
     @Override
     public void deleteReview(int reviewID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.deleteReview(reviewID);
     }
 
     @Override
-    public Review createReview() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Review createReview(Review review) {
+        return dao.createReview(review);
     }
     
 }

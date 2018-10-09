@@ -32,6 +32,8 @@ public class Review {
     @NotEmpty(message = "You must supply a value for the text of this review.")
     @Length(max = 3000, message = "The Text must be no more than 3000 characters in length.")
     private String text;
+    private int bookID;
+    private Book book;
     
 
     List<Field> fieldsOfStudy;

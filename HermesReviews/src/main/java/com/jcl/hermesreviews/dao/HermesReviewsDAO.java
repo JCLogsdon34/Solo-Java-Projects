@@ -20,23 +20,23 @@ import java.util.List;
  */
 public interface HermesReviewsDAO {
     
-    public Article getArticle(int articleID);
-    
-    public Article editArticle(int articleID);
-    
-    public void deleteArticle(int articleID);
-    
-    public Article createArticle();
+//    public Article getArticle(int articleID);
+//    
+//    public Article editArticle(int articleID);
+//    
+//    public void deleteArticle(int articleID);
+//    
+//    public Article createArticle(Article article);
     
     /// ArticleReview Methods
-    public ArticleReview getArticleReview(int articleReviewID);
-    
-    public ArticleReview editArticleReview(int articleReviewID);
-    
-    public void deleteArticleReview(int articleReview);
-    
-    public ArticleReview createArticleReview();
-    
+//    public ArticleReview getArticleReview(int articleReviewID);
+//    
+//    public ArticleReview editArticleReview(int articleReviewID);
+//    
+//    public void deleteArticleReview(int articleReview);
+//    
+//    public ArticleReview createArticleReview(ArticleReview articleReview);
+//    
     
     /// Author Methods
     public Author getAuthor(int authorID);
@@ -52,7 +52,7 @@ public interface HermesReviewsDAO {
     /// Book Methods
     public Book getBook(int bookID);
     
-    public void editBook(int bookID);
+    public void editBook(Book book);
     
     public void deleteBook(int bookID);
     
@@ -61,31 +61,34 @@ public interface HermesReviewsDAO {
     public List<Book> getAllBooks();
     
     /// Book Review Methods
-    public BookReview getBookReview(int bookReviewID);
-    
-    public BookReview editBookReview(int bookReviewID);
-    
-    public void deleteBookReview(int bookReviewID);
-    
-    public BookReview createBookReview();
+//    public BookReview getBookReview(int bookReviewID);
+//    
+//    public BookReview editBookReview(BookReview bookReview);
+//    
+//    public void deleteBookReview(int bookReviewID);
+//    
+//    public BookReview createBookReview(BookReview bookReview);
+//    
+//    public List<Review> getAllBookReviews(int bookReviewID);
     
     
     /// Field Methods
     public Field getField(int fieldID);
     
-    public Field editField(int fieldID);
+    public void editField(Field field);
     
     public void deleteField(int fieldID);
     
-    public Field createField();
+    public Field createField(Field field);
     
+    public List<Field> getAllFields();
     
     /// Review Methods 
     public Review getReview(int reviewID);
     
-    public Review editReview(int reviewID);
+    public void editReview(Review review);
     
     public void deleteReview(int reviewID);
     
-    public Review createReview();
+    public Review createReview(Review review);
 }
