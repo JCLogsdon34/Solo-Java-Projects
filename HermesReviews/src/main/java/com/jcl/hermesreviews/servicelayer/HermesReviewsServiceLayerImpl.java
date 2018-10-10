@@ -188,4 +188,9 @@ public class HermesReviewsServiceLayerImpl implements HermesReviewsServiceLayer 
         return dao.createReview(review);
     }
     
+    @Override
+    public List<Review> getAllReviews(){
+        return dao.getAllReviews();
+    }
+    
 }

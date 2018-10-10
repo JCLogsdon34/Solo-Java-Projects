@@ -562,6 +562,12 @@ public class HermesReviewsDAOImpl implements HermesReviewsDAO {
         return review;
     }
     
+    @Override @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
+    public List<Review> getAllReviews() {
+                return jdbcTemplate.query(SQL_SELECT_ALL_REVIEWS,
+                new ReviewMapper());
+    }
+    
     private static final class ReviewMapper implements RowMapper<Review> {
 
         @Override

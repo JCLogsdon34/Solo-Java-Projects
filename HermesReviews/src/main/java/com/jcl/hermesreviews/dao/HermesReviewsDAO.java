@@ -91,4 +91,6 @@ public interface HermesReviewsDAO {
     public void deleteReview(int reviewID);
     
     public Review createReview(Review review);
+    
+    public List<Review> getAllReviews();
 }

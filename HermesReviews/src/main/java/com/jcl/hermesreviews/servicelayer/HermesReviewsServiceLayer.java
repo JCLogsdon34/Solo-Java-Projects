@@ -89,5 +89,5 @@ public interface HermesReviewsServiceLayer {
     
     public Review createReview(Review review);
     
-    
+    public List<Review> getAllReviews();
 }
