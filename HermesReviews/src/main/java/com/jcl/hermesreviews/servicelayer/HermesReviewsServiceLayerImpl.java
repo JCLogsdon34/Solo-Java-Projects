@@ -167,6 +167,11 @@ public class HermesReviewsServiceLayerImpl implements HermesReviewsServiceLayer 
         return dao.createField(field);
     }
 
+    @Override
+    public List<Field> getAllFields(){
+        return dao.getAllFields();
+    }
+    
     //////////////////// Review Methods //////
     @Override
     public Review getReview(int reviewID) {

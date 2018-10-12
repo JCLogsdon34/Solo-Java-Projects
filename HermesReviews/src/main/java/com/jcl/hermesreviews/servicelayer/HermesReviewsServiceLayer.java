@@ -80,6 +80,8 @@ public interface HermesReviewsServiceLayer {
     
     public Field createField(Field field);
     
+    public List<Field> getAllFields();
+    
     /// Review Methods 
     public Review getReview(int reviewID);
     

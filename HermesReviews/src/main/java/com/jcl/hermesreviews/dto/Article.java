@@ -31,6 +31,8 @@ public class Article {
     @Length(max = 150, message = "Article Title must be no more than 150 characters in length.")
     private String articleTitle;
     private LocalDate dateOfPublication;
+    @NotEmpty(message = "You must supply a value for Publication Name.")
+    @Length(max = 150, message = "Publication Name must be no more than 150 characters in length.")
     private String publicationName;
     
     List<Author> authors;
