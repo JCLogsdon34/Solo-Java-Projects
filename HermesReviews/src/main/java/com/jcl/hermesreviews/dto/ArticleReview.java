@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticleReview {
+public class ArticleReview extends Review {
     
     private int articleReviewID;
     private int articleID;

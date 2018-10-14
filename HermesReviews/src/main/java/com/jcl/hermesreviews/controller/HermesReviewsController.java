@@ -516,11 +516,17 @@ public class HermesReviewsController {
         List<Field> fieldList = new ArrayList<>();
         List<Field> lotList = new ArrayList<>();
         List<Book> bList = new ArrayList<>();
+        List<Author> aList = new ArrayList<>();
         for (Book b: bList) {
             Field field = new Field();
             Author author = new Author();
             int fieldID = 0;
             int authorID = 0;
+            for(Author a : aList){
+                authorID = a.getAuthorID();
+                author = service.getAuthor(authorID);
+                aList.add(author);
+            }
             fieldList = b.getFieldsOfStudy();
             for(Field f : fieldList){
                 fieldID = f.getFieldID();
@@ -557,20 +563,26 @@ public class HermesReviewsController {
         book = service.getBook(bookID);
         List<Author> authorList = new ArrayList<>();
         List<Field> fieldList = new ArrayList<>();
-//        int fieldID = 0;
+        List<Author> aList = new ArrayList<>();
+        List<Field> fList = new ArrayList<>();
         int authorID = 0;
         Author author = new Author();
         Field field = new Field();
         int fieldID = 0;
         fieldList = book.getFieldsOfStudy();
+        authorList = book.getAuthor();
+        for(Author a : authorList){
+            authorID = a.getAuthorID();
+            author = service.getAuthor(authorID);
+            aList.add(author);
+        }
         for(Field f : fieldList){
             fieldID = f.getFieldID();
             field = service.getField(fieldID);
+            fList.add(field);
         }
-        model.addAttribute("fieldList", fieldList);
-
-        author = service.getAuthor(bookID);
-        authorList.add(author);
+        model.addAttribute("authorList", aList);
+        model.addAttribute("fieldList", fList);
         bookList.add(book);
         model.addAttribute("bookList", bookList);
         return "bookDetails";

@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookReview {
+public class BookReview extends Review {
     
     private int bookReviewID;
     private int bookID;
