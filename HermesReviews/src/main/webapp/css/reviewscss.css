@@ -1,0 +1,96 @@
+body
+{
+    background: AliceBlue !important;
+    font-family:"Times New Roman";
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+span   
+{
+    padding-left: 25px;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 20px;
+}
+#Head   
+{
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
+
+#Links 
+{
+    text-decoration: underline;
+    text-align: left;
+}
+a:hover{
+    font-weight: bold;
+}
+a:visited{
+    color: Red;
+}
+#Footer
+{
+    text-align: center;
+}	
+
+h4 {
+    margin-top: 25px;
+}
+.row {
+    margin-bottom: 20px;
+}
+.row .row {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+[class*="col-"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+}
+
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.header,
+.marketing,
+.footer {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 19px;
+    border-top: 1px;
+}
+
+
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.navbar-wrapper > .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-wrapper .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+    width: auto;
+}

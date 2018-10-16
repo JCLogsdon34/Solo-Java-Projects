@@ -52,9 +52,6 @@ public class HermesReviewsController {
         List<Field> fields = new ArrayList<>();
         List<Field> lots = new ArrayList<>();
         
-//        Author author = new Author();
-//        Field field = new Field();
-        
         bookList = service.getAllBooks();
         
         for (Book book : bookList) {
@@ -122,6 +119,12 @@ public class HermesReviewsController {
         
         for (Review review : reviewList) {
             Book book = new Book();
+            Author author = new Author();
+            List<Author> auths = new ArrayList<>();
+            List<Author> authors =  new ArrayList<>();
+            List<Field> bookFields = new ArrayList<>();
+            List<Field> booksFields = new ArrayList<>();
+            Field lot = new Field();
             Field field = new Field();
             fields = review.getFieldsOfStudy();
             for(Field f : fields){
@@ -129,11 +132,30 @@ public class HermesReviewsController {
                 field = service.getField(fieldID);
                 fields.add(field);
             }
+            
             int bookID = review.getBookID();
             book = service.getBook(bookID);
+            bookFields = book.getFieldsOfStudy();
+            /// note: review this again on paper in UML
+            /// it seems circular to have fields twice
+            ///even if one is for reviews and one is for books
+                for(Field l : bookFields){
+                    int bookFieldID = l.getFieldID();
+                    lot = service.getField(bookFieldID);
+                    booksFields.add(lot);
+                }
+            book.setFieldsOfStudy(booksFields);
+            auths = book.getAuthor();
+            for(Author a : auths){
+                int authorID = a.getAuthorID();
+                author = service.getAuthor(authorID);
+                authors.add(author);
+            }   
+            book.setAuthor(authors);
             review.setBook(book);
             revs.add(review);
         }
+        model.addAttribute("fields", fields);
         model.addAttribute("reviews", revs);
         return "reviewsPage";
     }
@@ -258,16 +280,21 @@ public class HermesReviewsController {
 
         review = service.getReview(reviewID);
         List<Field> fieldList = new ArrayList<>();
-//        int fieldID = 0;
+        List<Field> lots = new ArrayList<>();
+        int fieldID = 0;
         int bookID = 0;
         Book book = new Book();
-//        Field field = new Field();
-//        field = service.getField(fieldID);
+        Field field = new Field();
+        bookID = review.getBookID();
+        book = service.getBook(bookID);
+        review.setBook(book);
         fieldList = review.getFieldsOfStudy();
-//        for(Field f : fieldList){
-//            fieldID = f.getFieldID();
-//            field = service.getField(fieldID);
-//        }
+        for(Field f : fieldList){
+            fieldID = f.getFieldID();
+            field = service.getField(fieldID);
+            lots.add(field);
+        }
+        review.setFieldsOfStudy(lots);
         model.addAttribute("fieldList", fieldList);
 
         bookID = review.getBookID();
@@ -415,21 +442,30 @@ public class HermesReviewsController {
         List<Book> bookList = new ArrayList<>();
         List<Book> books = new ArrayList<>();
         List<Author> authors = new ArrayList<>();
+        List<Author> auths = new ArrayList<>();
+        List<Field> lots = new ArrayList<>();
         List<Field> fields = new ArrayList<>();
         bookList = service.getAllBooks();
         
         for (Book b : bookList) {
             Book book = new Book();
-            int bookID = book.getBookID();
+            int bookID = b.getBookID();
             book = service.getBook(bookID);
             Author author = new Author();
+            Field field = new Field();
             authors = book.getAuthor();
             for(Author a : authors){
                 int authorID = a.getAuthorID();
                 author = service.getAuthor(authorID);
-                authors.add(author);
+                auths.add(author);
             }
-            book.setAuthor(authors);
+            for(Field f : fields){
+                int fieldID = f.getFieldID();
+                field = service.getField(fieldID);
+                lots.add(field);
+            }
+            book.setFieldsOfStudy(lots);
+            book.setAuthor(auths);
             books.add(book);
         }
         model.addAttribute("books", books);
@@ -440,10 +476,13 @@ public class HermesReviewsController {
     public String createBook(HttpServletRequest request) {
         Book book = new Book();
         List<Field> fields = new ArrayList<>();
+        List<Field> lots = new ArrayList<>();
         List<Book> books = new ArrayList<>();
         List<Author> auths = new ArrayList<>();
         
         Review review = new Review();
+        Author author = new Author();
+        Field field = new Field();
         
         books = service.getAllBooks();
         
@@ -456,43 +495,41 @@ public class HermesReviewsController {
         String published = "";
         String fieldName = "";
         
-        for(Book b : books){
-           integerBook = b.getBookID();
-           bookTitle = b.getTitle();
-           press = b.getPressName();
-           published = b.getDateOfPublication();
-           auths = b.getAuthor();
-           fields = b.getFieldsOfStudy();
-           
-           
+         
 //                for(Author r : auths){
 //                    authorID = r.getAuthorID();
-//                    authorName = r.getAuthorName();
+//                    author = service.getAuthor(authorID);
+//                    auths.add(author);
 //                    
 //                }
 //                for(Field f : fields){
 //                    fieldID = f.getFieldID();
-//                    fieldName = f.getFieldName();
+//                    field = service.getField(fieldID);
+//                    lots.add(field);
 //                }
-        }
-        String bookIdParameter = request.getParameter("bookID");
-        int bookID = Integer.parseInt(bookIdParameter);
-        review.setBookID(bookID);
         
         String fieldIdParameter = request.getParameter("fieldID");
         fieldID = Integer.parseInt(fieldIdParameter);
-        Field field = new Field();
         field = service.getField(fieldID);
-        fields.add(field);
-        review.setFieldsOfStudy(fields);
+        String authorIdParameter = request.getParameter("authorID");
+        authorID = Integer.parseInt(authorIdParameter);
+        author = service.getAuthor(authorID);
+        auths.add(author);
         String title = "";
         String text = "";
+        String pressName = "";
+        String dateOfPublication = "";
         title = request.getParameter("title");
+        pressName = request.getParameter("pressName");
+        dateOfPublication = request.getParameter("dateOfPublication");
         text = request.getParameter("text");
-        book = service.getBook(bookID);
-        review.setBook(book);
+        book.setTitle(title);
+        book.setPressName(pressName);
+        book.setDateOfPublication(dateOfPublication);
+        book.setFieldsOfStudy(fields);
+        book.setAuthor(auths);
 
-        service.createReview(review);
+        service.createBook(book);
         return "redirect:displayBooksPage";
     }
 
@@ -522,6 +559,7 @@ public class HermesReviewsController {
             Author author = new Author();
             int fieldID = 0;
             int authorID = 0;
+            aList = b.getAuthor();
             for(Author a : aList){
                 authorID = a.getAuthorID();
                 author = service.getAuthor(authorID);
