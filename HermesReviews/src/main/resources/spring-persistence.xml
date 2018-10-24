@@ -44,14 +44,4 @@
           class="com.jcl.hermesreviews.dao.HermesReviewsDAOImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
-    <bean id="hermesReviewsServiceLayer" 
-          class="com.jcl.hermesreviews.servicelayer.HermesReviewsServiceLayerImpl">
-        <constructor-arg ref="hermesReviewsDao"/>  
-    </bean>
-        <bean id="controller" 
-              class="com.mycompany.flooringmasterylou.controller.Controller">
-        <constructor-arg ref="hermesReviewsServiceLayer"/>
-        <constructor-arg ref="view"/>
-    </bean>
-    
 </beans>
