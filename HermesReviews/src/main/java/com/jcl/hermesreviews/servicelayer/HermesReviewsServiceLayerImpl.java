@@ -26,7 +26,7 @@ public class HermesReviewsServiceLayerImpl implements HermesReviewsServiceLayer 
     public HermesReviewsServiceLayerImpl(HermesReviewsDAO dao) {
         this.dao = dao;
     }
-    
+    /// TODO work on implementing Article and Article review as a stretch goal
        ///articles
 //    @Override
 //    public Article getArticle(int articleID) {

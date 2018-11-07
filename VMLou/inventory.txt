@@ -1,0 +1,10 @@
+1953::Maker's Mark::2.75::5
+1997::Jefferson's Reserve::5.25::5
+1832::Old Taylor::3.15::5
+2015::Cassius Clay::3.75::0
+1783::Evan Williams::2.50::5
+1870::Old Forrester::5.50::5
+1903::Kentucky Tavern::1.50::5
+1935::Heaven Hill::1.25::5
+1835::Old Crow::2.35::5
+1999::Bulleit Bourbon::2.15::5

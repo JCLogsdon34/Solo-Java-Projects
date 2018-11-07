@@ -1,0 +1,58 @@
+2018-02-04T12:54:30.103 : Item 1935 vended
+2018-02-04T12:57:42.987 : Item 1935 vended
+2018-02-04T13:36:45.100 : Item 1835 vended
+2018-02-04T15:11:06.801 : Item 1835 vended
+2018-02-04T15:28:03.565 : Item 1999 vended
+2018-02-04T15:48:55.061 : Item 1999 vended
+2018-02-04T15:51:43.354 : Item 1999 vended
+2018-02-04T19:08:29.814 : Item 1835 vended
+2018-02-04T19:12:27.564 : Item 1835 vended
+2018-02-04T19:20:28.868 : Item 1999 vended
+2018-02-04T19:59:47.196 : Item 1835 vended
+2018-02-04T20:18:16.335 : Item 1832 vended
+2018-02-04T20:23:34.875 : Item 1835 vended
+2018-02-04T20:27:42.950 : Item 1999 vended
+2018-02-04T20:31:33.437 : Item 1903 vended
+2018-02-04T20:34:19.651 : Item 1999 vended
+2018-02-04T20:46:49.471 : Item 1999 vended
+2018-02-04T20:48:55.090 : Item 1999 vended
+2018-02-04T20:50:51.608 : Item 1903 vended
+2018-02-04T20:59:32.874 : Item 1999 vended
+2018-02-04T21:09:47.397 : Item 1999 vended
+2018-02-05T10:27:10.788 : Item 2015 vended
+2018-02-05T10:48:38.989 : Item 1832 vended
+2018-02-05T10:54:55.635 : Item 1835 vended
+2018-02-05T10:56:57.022 : Item 1835 vended
+2018-02-05T11:05:03.369 : Item 1903 vended
+2018-02-05T11:07:05.274 : Item 1903 vended
+2018-02-05T11:10:43.056 : Item 1997 vended
+2018-02-05T11:14:11.416 : Item 1903 vended
+2018-02-05T11:18:08.038 : Item 1903 vended
+2018-02-05T13:09:13.743 : Item 1903 vended
+2018-02-05T13:12:50.919 : Item 1903 vended
+2018-02-05T13:49:18.392 : Item 1903 vended
+2018-02-05T13:50:57.997 : Item 1903 vended
+2018-02-05T13:56:16.658 : Item 1903 vended
+2018-02-05T14:00:33.075 : Item 1903 vended
+2018-02-05T14:03:38.128 : Item 1903 vended
+2018-02-05T14:06:22.296 : Item 1903 vended
+2018-02-05T14:11:01.262 : Item 1903 vended
+2018-02-05T14:29:23.815 : Item 1903 vended
+2018-02-05T14:43:40.166 : Item 1783 vended
+2018-02-05T14:50:45.091 : Item 1832 vended
+2018-02-06T09:34:20.163 : Item 1935 vended
+2018-02-06T09:35:16.854 : Item 1935 vended
+2018-02-06T14:09:58.663 : Item 1953 vended
+2018-02-06T14:15:33.317 : Item 1953 vended
+2018-02-08T15:17:07.701 : createOrder: 1903Item Code: 1903 |Name: Kentucky Tavern |Item Price: 1.50 |Item Inventory: 4
+2018-02-08T15:21:27.066 : createOrder: 1783Item Code: 1783 |Name: Evan Williams |Item Price: 2.50 |Item Inventory: 4
+2018-02-08T15:23:22.437 : createOrder: 1903Item Code: 1903 |Name: Kentucky Tavern |Item Price: 1.50 |Item Inventory: 4
+2018-02-08T15:30:40.773 : createOrder: 1935Item Code: 1935 |Name: Heaven Hill |Item Price: 1.25 |Item Inventory: 4
+2018-02-09T14:13:43.044 : enoughMoney just threw an exception (VMLouInsufficientFundsException)
+2018-02-09T14:13:43.105 : And these were it's arguments: 
+2018-02-09T14:13:43.105 : 1) BigDecimal: 2.002018-02-09T14:13:43.105
+2018-02-09T14:13:43.105 : 2) BigDecimal: 2.152018-02-09T14:13:43.105
+2018-02-10T17:27:58.377 : createOrder just threw an exception (VMLouNotInStockException)
+2018-02-10T17:27:58.485 : And these were it's arguments: 
+2018-02-10T17:27:58.485 : 1) String: 20152018-02-10T17:27:58.485
+2018-02-10T17:27:58.485 : 2) Item: Item Code: 2015 |Name: Cassius Clay |Item Price: 3.75 |Item Inventory: 02018-02-10T17:27:58.485
