@@ -72,7 +72,7 @@ public class Controller {
         String itemCode = "";
         BigDecimal changeRefund = new BigDecimal("0");
         BigDecimal money = new BigDecimal("0");
-        Item currentItem = new Item(itemCode);
+        Item currentItem = new Item();
         Change change = new Change();
         do {
             view.displayCreateOrderBanner();

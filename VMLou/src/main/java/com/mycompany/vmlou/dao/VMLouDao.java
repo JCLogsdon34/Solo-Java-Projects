@@ -8,6 +8,16 @@ import java.util.List;
  * @author JCLog
  */
 public interface VMLouDao {
+    
+    Item addItem(Item item);
+    
+    void deleteItem(int itemID);
+    
+    void updateItem(Item item);
+    
+    Item getItemByID(int itemID);
+    
+    List<Item> getAllItemsInDB();
 
     Item createOrder(String itemCode, Item item)
             throws VMLouPersistenceException,

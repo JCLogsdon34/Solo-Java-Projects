@@ -19,7 +19,8 @@ public class VMLouDaoStubImpl implements VMLouDao {
     private List<Item> itemList = new ArrayList<>();
 
     public VMLouDaoStubImpl() {
-        onlyItem = new Item("1936");
+        onlyItem = new Item();
+        onlyItem.setItemCode("1936");
         onlyItem.setItemName("Rebel Yell");
         onlyItem.setItemPrice(new BigDecimal("1.50").setScale(2, RoundingMode.HALF_UP));
         onlyItem.setItemInventory(Integer.parseInt("5"));

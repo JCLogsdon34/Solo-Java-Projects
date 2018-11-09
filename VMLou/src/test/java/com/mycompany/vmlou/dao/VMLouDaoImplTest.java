@@ -6,10 +6,11 @@
 package com.mycompany.vmlou.dao;
 
 import com.mycompany.vmlou.dao.VMLouDao;
-import com.mycompany.vmlou.dao.VMLouDaoImpl;
+import com.mycompany.vmlou.dao.VMLouDaoJdbcTemplateImpl;
 import com.mycompany.vmlou.dao.VMLouPersistenceException;
 import com.mycompany.vmlou.dto.Item;
 import java.math.BigDecimal;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -18,6 +19,9 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
@@ -27,8 +31,25 @@ public class VMLouDaoImplTest {
 
     private VMLouDao dao;
 
+    private JdbcTemplate jdbcTemplate;
+
     public VMLouDaoImplTest() {
-        dao = new VMLouDaoImpl();
+        ApplicationContext factory
+                = new ClassPathXmlApplicationContext("test-applicationContext.xml");
+
+        jdbcTemplate = factory.getBean(JdbcTemplate.class);
+        dao = new VMLouDaoJdbcTemplateImpl(jdbcTemplate);
+
+        // We have to empty the database for our tests.
+        // Since we have a couple of nullable, foreign keys
+        // it's easier to just set them to null and THEN delete
+        // the other records. Otherwise, you would have to delete them in reverse order
+        // of their entry.
+        // Also, you could just use your dao delete methods, but that
+        // will require that they work! This way, you bypass the dao
+        // and manipulate the database directly.
+
+        jdbcTemplate.execute("DELETE FROM Items WHERE 1=1");
     }
 
     @BeforeClass
@@ -51,6 +72,31 @@ public class VMLouDaoImplTest {
         currentItem.setItemInventory(5);
         dao.editItem(itemCode, currentItem);
         dao.writeInventory();
+    }
+    
+    @Test
+    public Item addItem(Item item) {
+        return dao.addItem(item);
+    }
+
+    @Test
+    public void deleteItem(int itemID) {
+        dao.deleteItem(itemID);
+    }
+
+    @Test
+    public void updateItem(Item item) {
+        dao.updateItem(item);
+    }
+
+    @Test
+    public Item getItemByID(int itemID) {
+        return dao.getItemByID(itemID);
+    }
+
+    @Test
+    public List<Item> getAllItemsInDB() {
+        return dao.getAllItemsInDB();
     }
 
     @Test

@@ -4,11 +4,15 @@ import com.mycompany.vmlou.dao.VMLouNotInStockException;
 import com.mycompany.vmlou.dto.Change;
 import com.mycompany.vmlou.dao.AuditDao;
 import com.mycompany.vmlou.dao.VMLouDao;
+import com.mycompany.vmlou.dao.VMLouDaoJdbcTemplateImpl;
 import com.mycompany.vmlou.dao.VMLouPersistenceException;
 import com.mycompany.vmlou.dto.Item;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author JCLog
@@ -21,6 +25,34 @@ public class ServiceLayerImpl implements ServiceLayer {
     public ServiceLayerImpl(VMLouDao dao, AuditDao auditDao) {
         this.dao = dao;
         this.auditDao = auditDao;
+    }
+    
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public Item addItem(Item item) {
+        return dao.addItem(item);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public void deleteItem(int itemID) {
+        dao.deleteItem(itemID);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    public void updateItem(Item item) {
+        dao.updateItem(item);
+    }
+
+    @Override
+    public Item getItemByID(int itemID) {
+        return dao.getItemByID(itemID);
+    }
+
+    @Override
+    public List<Item> getAllItemsInDB() {
+        return dao.getAllItemsInDB();
     }
 
     @Override

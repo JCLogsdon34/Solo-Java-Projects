@@ -12,6 +12,16 @@ import java.util.List;
  */
 public interface ServiceLayer {
     
+    Item addItem(Item item);
+    
+    void deleteItem(int itemID);
+    
+    void updateItem(Item item);
+    
+    Item getItemByID(int itemID);
+    
+    List<Item> getAllItemsInDB();
+    
     void createOrder(String itemCode, Item item)
             throws VMLouPersistenceException,
             VMLouDataValidationException,
