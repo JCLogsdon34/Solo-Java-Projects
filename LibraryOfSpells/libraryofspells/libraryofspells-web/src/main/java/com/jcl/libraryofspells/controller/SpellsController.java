@@ -11,4 +11,6 @@ package com.jcl.libraryofspells.controller;
  */
 public class SpellsController {
     
+    
+    
 }
