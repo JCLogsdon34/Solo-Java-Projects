@@ -5,10 +5,23 @@
  */
 package com.jcl.libraryofspells.servicelayer;
 
+import com.jcl.libraryofspells.dto.Spell;
+import java.util.List;
+
 /**
  *
  * @author JCLog
  */
 public interface SpellsServiceLayer {
+    
+    public Spell addSpell(Spell spell);
+
+    public void deleteSpell(int spellID);
+
+    public void updateSpell(Spell spell);
+
+    public Spell getSpellByID(int spellID);
+
+    public List<Spell> getAllSpells();
     
 }

@@ -5,10 +5,47 @@
  */
 package com.jcl.libraryofspells.servicelayer;
 
+import com.jcl.libraryofspells.dao.SpellsDao;
+import com.jcl.libraryofspells.dto.Spell;
+import java.util.List;
+import javax.inject.Inject;
+
 /**
  *
  * @author JCLog
  */
 public class SpellsServiceLayerImpl implements SpellsServiceLayer {
+    
+    private SpellsDao dao;
+
+    @Inject
+    public SpellsServiceLayerImpl(SpellsDao dao) {
+        this.dao = dao;
+    }
+    
+    @Override
+    public Spell addSpell(Spell Spell) {
+        return dao.addSpell(Spell);
+    }
+
+    @Override
+    public void deleteSpell(int SpellID) {
+        dao.deleteSpell(SpellID);
+    }
+
+    @Override
+    public void updateSpell(Spell Spell) {
+        dao.updateSpell(Spell);
+    }
+
+    @Override
+    public Spell getSpellByID(int SpellID) {
+        return dao.getSpellByID(SpellID);
+    }
+
+    @Override
+    public List<Spell> getAllSpells() {
+        return dao.getAllSpells();
+    }
     
 }
