@@ -53,12 +53,6 @@ public class Controller {
         List<Contact> contacts = new ArrayList<>();
         try{
         contactList = service.getAllContacts();
-
-            int u = 0;
-            int r = 0;
-            u = contacts.size();
-            r = u - 10;
-            contacts.subList(0, r).clear();
             
         model.addAttribute("contacts", contacts);
         } catch (AggregatorPersistenceException e) {
@@ -90,6 +84,6 @@ public class Controller {
         }
         contactList.add(contact);
         model.addAttribute("contactList", contactList);
-        return "contactDetails";
+        return "contactsDetails";
     }
 }

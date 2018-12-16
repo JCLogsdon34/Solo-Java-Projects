@@ -46,6 +46,7 @@ public class AggregatorDAOImpl implements AggregatorDAO {
     public void assembleTable(List<Contact> contactList) 
             throws AggregatorPersistenceException{
         for(Contact c : contactList){
+            
         contacts.put(c.getName(), c);
         }
         writeTable();

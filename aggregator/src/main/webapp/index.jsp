@@ -11,8 +11,7 @@
     <head>
         <title>Index Page</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-        <link href="${pageContext.request.contextPath}/css/myCss.css" rel="stylesheet">     
-        <link href="${pageContext.request.contextPath}/css/sightingscss.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/aggregatorcss.css" rel="stylesheet">     
         <link rel="icon" href="http://getbootstrap.com/favicon.ico">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -45,8 +44,9 @@
 
         <div id="Links">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="file:///C:/Users/JCLog/Desktop/chris-logsdon-individual-work/Intro-to-Web-Development/My%20Greek%20Resturnat/homePage.html"> <span class="glyphicon glyphicon-home"> </span></a></li>
+                <li class="active"><a href="file:///C:/Users/JCLog/Desktop/Java Solo Work/aggregator/src/main/webapp/index.jsp"> <span class="glyphicon glyphicon-home"> </span></a></li>
                 <li><a href="https://inventory.data.gov/dataset/032e19b4-5a90-41dc-83ff-6e4cd234f565/resource/38625c3d-5388-4c16-a30f-d105432553a4/download/postscndryunivsrvy2013dirinfo.csv"> Goverment Web Page </a></li>
+                <li role="presentation"><a href="${pageContext.request.contextPath}/displayContactsPage">New Contacts Table </a></li>
             </ul>
         </div>
         <hr>

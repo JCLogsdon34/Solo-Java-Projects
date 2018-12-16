@@ -11,8 +11,7 @@
 <!DOCTYPE HTML>
     <head>
         <title>Contacts Page</title>
-        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-        <link href="${pageContext.request.contextPath}/css/myCss.css" rel="stylesheet">     
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">  
         <link href="${pageContext.request.contextPath}/css/aggregatorcss.css" rel="stylesheet">
         <link rel="icon" href="http://getbootstrap.com/favicon.ico">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
