@@ -7,8 +7,8 @@ package com.jcl.aggregator;
 
 import com.jcl.aggregator.dao.AggregatorNoSuchListingException;
 import com.jcl.aggregator.dao.AggregatorPersistenceException;
-import com.jcl.dto.Contact;
-import com.jcl.servicelayer.AggregatorServiceLayer;
+import com.jcl.aggregator.dto.Contact;
+import com.jcl.aggregator.servicelayer.AggregatorServiceLayer;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author JCLog
  */
 public class Controller {
-    
+
     private AggregatorServiceLayer service;
 
     @Inject
@@ -38,46 +38,35 @@ public class Controller {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayLandingPage() {
         try {
-        List<Contact> contactList = new ArrayList<>();
-        contactList = service.displayFromExcel();
-        service.assembleTable(contactList);
+            List<Contact> contactList = new ArrayList<>();
+            contactList = service.displayFromExcel();
+            service.assembleTable(contactList);
         } catch (AggregatorPersistenceException e) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, e);
+
         }
         return "index";
     }
 
-    @RequestMapping(value = "/displayHomePage", method = RequestMethod.GET)
-    public String displayHomePage(Model model) {        
+    @RequestMapping(value = "/displayContactsPage", method = RequestMethod.GET)
+    public String displayAllContacts(Model model) {
         List<Contact> contactList = new ArrayList<>();
-        List<Contact> contacts = new ArrayList<>();
-        try{
-        contactList = service.getAllContacts();
-            
-        model.addAttribute("contacts", contacts);
+        try {
+            contactList = service.getAllContacts();
         } catch (AggregatorPersistenceException e) {
-          ///// nothing yet
-          /// implement a message saying not able to load
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, e);
         }
-        return "homePage";
-    }
-
-   @RequestMapping(value = "/displayContactsPage", method = RequestMethod.GET)
-    public String displayAllContacts(Model model) throws AggregatorPersistenceException {
-        List<Contact> contacts = new ArrayList<>();
-        contacts = service.getAllContacts();
-        model.addAttribute("contacts", contacts);
+        model.addAttribute("currentContact", contactList);
         return "contactsPage";
     }
-    
+
     @RequestMapping(value = "/getContact", method = RequestMethod.GET)
     public String getContact(HttpServletRequest request, Model model) {
         List<Contact> contactList = new ArrayList<>();
         String term = request.getParameter("term");
         Contact contact = new Contact();
-        try{
-        contact = service.getContact(term);
-        }catch(AggregatorNoSuchListingException e){
+        try {
+            contact = service.getContact(term);
+        } catch (AggregatorNoSuchListingException e) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, e);
         } catch (AggregatorPersistenceException e) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, e);

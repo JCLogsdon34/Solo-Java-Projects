@@ -1,6 +1,6 @@
 package com.jcl.aggregator.dao;
 
-import com.jcl.dto.Contact;
+import com.jcl.aggregator.dto.Contact;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -45,15 +45,14 @@ public class AggregatorDAOImpl implements AggregatorDAO {
     @Override
     public void assembleTable(List<Contact> contactList) 
             throws AggregatorPersistenceException{
-        for(Contact c : contactList){
-            
+        for(Contact c : contactList){            
         contacts.put(c.getName(), c);
         }
         writeTable();
     }
 
     public static final String TABLE_FILE = "table.txt";
-    public static final String DELIMITER = ",";
+    public static final String DELIMITER = "||";
 
       private void loadTable() throws AggregatorPersistenceException {
         Scanner scanner;

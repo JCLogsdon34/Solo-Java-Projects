@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jcl.servicelayer;
+package com.jcl.aggregator.servicelayer;
 
 import com.jcl.aggregator.dao.AggregatorDAO;
 import com.jcl.aggregator.dao.AggregatorNoSuchListingException;
 import com.jcl.aggregator.dao.AggregatorPersistenceException;
 import com.jcl.aggregator.dao.ExcelAggregator;
-import com.jcl.dto.Contact;
+import com.jcl.aggregator.dto.Contact;
 import java.util.List;
 import javax.inject.Inject;
 

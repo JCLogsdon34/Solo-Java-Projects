@@ -20,7 +20,7 @@
         <body>
             <div class="col-md-12">
                 <h2>Aggregated Table</h2>
-                <form action="getContact" class="form-horizontal" role="form" method="POST">     
+                <form action="getContact" class="form-horizontal" role="form" method="GET">     
                     <div class="form-group">
                         <label for="get-term" class="col-md-4 control-label"> Search Term:</label>
                         <div class="col-md-8">
@@ -40,25 +40,25 @@
                     <th width="20%">Phone Number</th>
                     <th width="10%">Web Address</th>
                 </tr>
-                    <c:forEach var="currentContacts" items="${contacts}">
+                    <c:forEach var="currentContact" items="${contactList}">
                 <tr>
                     <td>
-                        <a href="displayContactDetails?name=${currentContact.name}">
+                        <a href="getContact?name=${currentContact.name}">
                             <c:out value="${currentContact.name}" />
                         </a>
                     </td>
                     <td>
-                        <a href="displayContactDetails?name=${currentSighting.name}">
+                        <a href="getContact?name=${currentSighting.name}">
                             <c:out value="${currentContact.title}" />
                         </a>
                     </td>
                     <td>
-                        <a href="displayContactDetails?name=${currentSighting.name}">
+                        <a href="getContact?name=${currentSighting.name}">
                             <c:out value="${currentContact.phoneNumber}" />
                         </a>
                     </td>
                     <td>
-                        <a href="displayContactDetails?name=${currentSighting.name}">
+                        <a href="getContact?name=${currentSighting.name}">
                             <c:out value="${currentContact.webAddress}" />
                         </a>
                     </td>

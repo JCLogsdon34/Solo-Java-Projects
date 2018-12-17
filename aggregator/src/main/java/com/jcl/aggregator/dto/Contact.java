@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jcl.dto;
+package com.jcl.aggregator.dto;
 
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,7 +24,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 @EqualsAndHashCode
 public class Contact {
 
-    private int contactID;
     @NotEmpty(message = "You must supply a value for Name.")
     @Length(max = 150, message = "Name must be no more than 150 characters in length.")
     private String name;
@@ -37,7 +34,7 @@ public class Contact {
     @Length(max = 15, message = "Phone Number must be no more than 15 characters in length.")
     private String phoneNumber;
     @NotEmpty(message = "You must supply a value for Web Address.")
-    @Length(max = 150, message = "Web Address must be no more than 150 characters in length.")
+    @Length(max = 250, message = "Web Address must be no more than 150 characters in length.")
     private String webAddress;
     
     public Contact(String name) {

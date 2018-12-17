@@ -5,7 +5,7 @@
  */
 package com.jcl.aggregator.dao;
 
-import com.jcl.dto.Contact;
+import com.jcl.aggregator.dto.Contact;
 import java.util.List;
 
 /**
