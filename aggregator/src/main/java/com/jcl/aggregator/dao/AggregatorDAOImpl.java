@@ -38,6 +38,7 @@ public class AggregatorDAOImpl implements AggregatorDAO {
     public Contact getContact(String term)
             throws AggregatorPersistenceException, AggregatorNoSuchListingException {
         loadTable();
+        
         //// implement for loops here
         return contacts.get(term);
     }
@@ -70,10 +71,9 @@ public class AggregatorDAOImpl implements AggregatorDAO {
             currentLine = scanner.nextLine();
             currentTokens = currentLine.split(DELIMITER);
             Contact currentContact = new Contact(currentTokens[0]);
-            currentContact.setName(currentTokens[1]);
-            currentContact.setTitle(currentTokens[2]);
-            currentContact.setPhoneNumber(currentTokens[3]);
-            currentContact.setWebAddress(currentTokens[4]);
+            currentContact.setTitle(currentTokens[1]);
+            currentContact.setPhoneNumber(currentTokens[2]);
+            currentContact.setWebAddress(currentTokens[3]);
             contacts.put(currentContact.getName(), currentContact);
         }
         scanner.close();

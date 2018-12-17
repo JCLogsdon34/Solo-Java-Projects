@@ -35,25 +35,21 @@ import java.util.logging.Logger;
  *
  * @author JCLog
  */
-public class ExcelAggregatorImpl implements ExcelAggregator {
-
-    public ExcelAggregatorImpl() {
-
-    }
+public class ExcelAggregatorDAOImpl implements ExcelAggregatorDAO {
 
     private Map<String, Contact> newContacts = new HashMap<>();
-    
+
     @Override
     public List<Contact> displayFromExcel() {
         try {
             loadExcelDoc();
         } catch (AggregatorPersistenceException ex) {
-            Logger.getLogger(ExcelAggregatorImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }             
+            Logger.getLogger(ExcelAggregatorDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return new ArrayList<Contact>(newContacts.values());
     }
-        
-        private void loadExcelDoc() throws AggregatorPersistenceException {
+
+    private void loadExcelDoc() throws AggregatorPersistenceException {
         Scanner scanner;
         try {
             scanner = new Scanner(

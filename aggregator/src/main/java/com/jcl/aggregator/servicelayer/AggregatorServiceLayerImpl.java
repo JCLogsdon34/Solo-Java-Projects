@@ -8,10 +8,10 @@ package com.jcl.aggregator.servicelayer;
 import com.jcl.aggregator.dao.AggregatorDAO;
 import com.jcl.aggregator.dao.AggregatorNoSuchListingException;
 import com.jcl.aggregator.dao.AggregatorPersistenceException;
-import com.jcl.aggregator.dao.ExcelAggregator;
 import com.jcl.aggregator.dto.Contact;
 import java.util.List;
 import javax.inject.Inject;
+import com.jcl.aggregator.dao.ExcelAggregatorDAO;
 
 /**
  *
@@ -20,10 +20,10 @@ import javax.inject.Inject;
 public class AggregatorServiceLayerImpl implements AggregatorServiceLayer {
     
     private AggregatorDAO dao;
-    private ExcelAggregator daoAgg;
+    private ExcelAggregatorDAO daoAgg;
         
     @Inject
-    public AggregatorServiceLayerImpl(AggregatorDAO dao, ExcelAggregator daoAgg) {
+    public AggregatorServiceLayerImpl(AggregatorDAO dao, ExcelAggregatorDAO daoAgg) {
         this.dao = dao;
         this.daoAgg = daoAgg;
     }

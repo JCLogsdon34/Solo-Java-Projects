@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author JCLog
  */
-public interface ExcelAggregator {
+public interface ExcelAggregatorDAO {
     
     public List<Contact> displayFromExcel();
     
