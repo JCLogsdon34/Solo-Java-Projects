@@ -62,10 +62,10 @@ public class Controller {
     @RequestMapping(value = "/getContact", method = RequestMethod.GET)
     public String getContact(HttpServletRequest request, Model model) {
         List<Contact> contactList = new ArrayList<>();
-        String term = request.getParameter("term");
+        String name = request.getParameter("name");
         Contact contact = new Contact();
         try {
-            contact = service.getContact(term);
+            contact = service.getContact(name);
         } catch (AggregatorNoSuchListingException e) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, e);
         } catch (AggregatorPersistenceException e) {

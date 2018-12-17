@@ -7,8 +7,10 @@ package com.jcl.aggregator.servicelayer;
 
 import com.jcl.aggregator.dao.AggregatorNoSuchListingException;
 import com.jcl.aggregator.dao.AggregatorPersistenceException;
+import com.jcl.aggregator.dao.SearchTerm;
 import com.jcl.aggregator.dto.Contact;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -20,10 +22,13 @@ public interface AggregatorServiceLayer {
     public List<Contact> getAllContacts()
             throws AggregatorPersistenceException;
     
-    public Contact getContact(String term)
+    public Contact getContact(String name)
             throws AggregatorPersistenceException, AggregatorNoSuchListingException;
     
     public List<Contact> displayFromExcel();
     
     public void assembleTable(List<Contact> contactList) throws AggregatorPersistenceException;
+
+    public List<Contact> searchContacts(Map<SearchTerm, String> criteria);
+    
 }

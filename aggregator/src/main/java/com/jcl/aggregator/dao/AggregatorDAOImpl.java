@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -35,12 +37,10 @@ public class AggregatorDAOImpl implements AggregatorDAO {
     }
     
     @Override
-    public Contact getContact(String term)
+    public Contact getContact(String name)
             throws AggregatorPersistenceException, AggregatorNoSuchListingException {
         loadTable();
-        
-        //// implement for loops here
-        return contacts.get(term);
+        return contacts.get(name);
     }
     
     @Override
@@ -50,6 +50,66 @@ public class AggregatorDAOImpl implements AggregatorDAO {
         contacts.put(c.getName(), c);
         }
         writeTable();
+    }
+    
+    @Override
+    public List<Contact> searchContacts(Map<SearchTerm, String> criteria) {
+        String nameSearchCriteria
+                = criteria.get(SearchTerm.NAME);
+        String titleSearchCriteria
+                = criteria.get(SearchTerm.TITLE);
+        String phoneNumberSearchCriteria
+                = criteria.get(SearchTerm.PHONE_NUMBER);
+        String webAddressSearchCriteria
+                = criteria.get(SearchTerm.WEB_ADDRESS);
+
+        Predicate<Contact> nameMatchPredicate;
+        Predicate<Contact> titleMatchPredicate;
+        Predicate<Contact> phoneNumberMatchPredicate;
+        Predicate<Contact> webAddressMatchPredicate;
+
+        Predicate<Contact> truePredicate = (c) -> {
+            return true;
+        };
+
+        if (nameSearchCriteria == null
+                || nameSearchCriteria.isEmpty()) {
+            nameMatchPredicate = truePredicate;
+        } else {
+            nameMatchPredicate
+                    = (c) -> c.getName().equals(nameSearchCriteria);
+        }
+
+        if (titleSearchCriteria == null
+                || titleSearchCriteria.isEmpty()) {
+            titleMatchPredicate = truePredicate;
+        } else {
+            titleMatchPredicate
+                    = (d) -> d.getTitle().equals(titleSearchCriteria);
+        }
+
+        if (phoneNumberSearchCriteria == null
+                || phoneNumberSearchCriteria.isEmpty()) {
+            phoneNumberMatchPredicate = truePredicate;
+        } else {
+            phoneNumberMatchPredicate
+                    = (d) -> d.getPhoneNumber().equals(phoneNumberSearchCriteria);
+        }
+
+        if (webAddressSearchCriteria == null
+                || webAddressSearchCriteria.isEmpty()) {
+            webAddressMatchPredicate = truePredicate;
+        } else {
+            webAddressMatchPredicate
+                    = (d) -> d.getWebAddress().equals(webAddressSearchCriteria);
+        }
+
+        return contacts.values().stream()
+                .filter(nameMatchPredicate
+                        .and(titleMatchPredicate)
+                        .and(phoneNumberMatchPredicate)
+                        .and(webAddressMatchPredicate))
+                .collect(Collectors.toList());
     }
 
     public static final String TABLE_FILE = "table.txt";

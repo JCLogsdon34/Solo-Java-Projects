@@ -12,6 +12,8 @@ import com.jcl.aggregator.dto.Contact;
 import java.util.List;
 import javax.inject.Inject;
 import com.jcl.aggregator.dao.ExcelAggregatorDAO;
+import com.jcl.aggregator.dao.SearchTerm;
+import java.util.Map;
 
 /**
  *
@@ -34,9 +36,9 @@ public class AggregatorServiceLayerImpl implements AggregatorServiceLayer {
     }
     
     @Override
-    public Contact getContact(String term)
+    public Contact getContact(String name)
             throws AggregatorPersistenceException, AggregatorNoSuchListingException {
-        return dao.getContact(term);
+        return dao.getContact(name);
     }
     
     @Override
@@ -48,6 +50,11 @@ public class AggregatorServiceLayerImpl implements AggregatorServiceLayer {
     public void assembleTable(List<Contact> contactList) 
             throws AggregatorPersistenceException {
         dao.assembleTable(contactList);
+    } 
+        
+    @Override
+    public List<Contact> searchContacts(Map<SearchTerm, String> criteria) {
+        return dao.searchContacts(criteria);
     }
     
 }

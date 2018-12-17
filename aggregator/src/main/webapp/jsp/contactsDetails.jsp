@@ -20,6 +20,7 @@
             <div id="Links">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="${pageContext.request.contextPath}/"> <span class="glyphicon glyphicon-home"> </span></a></li>               
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/displaySearchPage">Search</a></li>
                 </ul>
             </div>
             <div class="col-md-12">
@@ -34,22 +35,22 @@
                     <c:forEach var="currentContact" items="${contactList}">
                         <tr>
                             <td>
-                                <a href="displayContactDetails?name=${currentContact.name}">
+                                <a href="getContact?name=${currentContact.name}">
                                     <c:out value="${currentContact.name}" />
                                 </a>
                             </td>
                             <td>
-                                <a href="displayContactDetails?name=${currentSighting.name}">
+                                <a href="getContact?name=${currentContact.name}">
                                     <c:out value="${currentContact.title}" />
                                 </a>
                             </td>
                             <td>
-                                <a href="displayContactDetails?name=${currentSighting.name}">
+                                <a href="getContact?name=${currentContact.name}">
                                     <c:out value="${currentContact.phoneNumber}" />
                                 </a>
                             </td>
                             <td>
-                                <a href="displayContactDetails?name=${currentSighting.name}">
+                                <a href="getContact?name=${currentContact.name}">
                                     <c:out value="${currentContact.webAddress}" />
                                 </a>
                             </td>

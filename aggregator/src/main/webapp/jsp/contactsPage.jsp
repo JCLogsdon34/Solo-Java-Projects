@@ -20,6 +20,7 @@
             <div id="Links">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="${pageContext.request.contextPath}/"> <span class="glyphicon glyphicon-home"> </span></a></li>               
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/displaySearchPage">Search</a></li>
                 </ul>
             </div>
             <div class="col-md-12">
